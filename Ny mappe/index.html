@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GN – Grenland Næringsavis</title>
+  <meta name="description" content="GN er en innsiktsplattform for beslutningstakere i Grenland. Analyse, kontekst og struktur – ikke støy." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Inter: sober og premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#07090c;
+      --bg2:#0b0e12;
+
+      --panel:rgba(255,255,255,.03);
+      --panel2:rgba(255,255,255,.02);
+      --stroke:rgba(255,255,255,.08);
+      --stroke2:rgba(255,255,255,.06);
+
+      --text:#e9edf4;
+      --muted:#a3adbd;
+      --muted2:#7f8898;
+
+      --accent:#2b67e8;
+      --accentStroke:rgba(43,103,232,.35);
+
+      --max:1080px;
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 18% 14%, rgba(255,255,255,.055), transparent 58%),
+        radial-gradient(900px 520px at 80% 20%, rgba(43,103,232,.10), transparent 62%),
+        radial-gradient(700px 420px at 55% 90%, rgba(255,255,255,.035), transparent 65%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:34px 18px 80px}
+
+    /* TOP */
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:8px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:500; letter-spacing:.2px}
+    .badge{
+      width:34px; height:34px; border-radius:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      border:1px solid var(--stroke2);
+      background: rgba(255,255,255,.02);
+      font-weight:600;
+      font-size:13px;
+    }
+    .brand span:last-child{opacity:.95; font-size:13px}
+
+    /* BUTTONS – mer “dyrt”, mindre “app” */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--stroke2);
+      background: rgba(255,255,255,.02);
+      color:rgba(233,237,244,.92);
+      transition: background .15s ease, border-color .15s ease, transform .06s ease;
+      font-weight:500;
+      font-size:13px;
+      letter-spacing:.01em;
+    }
+    .btn:hover{background: rgba(255,255,255,.035); border-color: rgba(255,255,255,.10)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background: rgba(43,103,232,.12);
+      border-color: var(--accentStroke);
+      box-shadow: 0 22px 70px rgba(0,0,0,.45);
+    }
+    .btn.primary:hover{background: rgba(43,103,232,.16)}
+
+    /* HERO AREA */
+    .hero{
+      margin-top:56px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    /* Left – mer editorial, mindre “kort” */
+    .left{
+      padding:18px 2px 0;
+    }
+    .kicker{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: rgba(233,237,244,.62);
+      margin-bottom:16px;
+      font-weight:500;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.9px;
+      font-weight:500;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.75;
+      font-weight:400;
+      max-width:56ch;
+    }
+
+    .ctaRow{
+      margin-top:22px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    /* Divider – gir “avis” */
+    .rule{
+      margin:26px 0 16px;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent);
+    }
+
+    .bullets{
+      display:grid;
+      gap:10px;
+      color:var(--muted2);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .bullet{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .bullet i{
+      width:8px; height:8px; border-radius:50%;
+      margin-top:7px;
+      background: rgba(233,237,244,.30);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+      flex:0 0 auto;
+    }
+
+    .contact{
+      margin-top:18px;
+      color: rgba(163,173,189,.92);
+      font-size:13px;
+    }
+    .contact a{color: rgba(233,237,244,.88)}
+    .contact a:hover{text-decoration:underline}
+
+    /* Right panel – eneste “kort” */
+    .panel{
+      border-radius: var(--radius);
+      border:1px solid var(--stroke);
+      background:
+        linear-gradient(180deg, var(--panel), var(--panel2));
+      box-shadow:
+        0 32px 90px rgba(0,0,0,.58),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter: blur(10px);
+      padding:20px;
+    }
+    .panelTitle{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: rgba(233,237,244,.62);
+      margin-bottom:10px;
+      font-weight:500;
+    }
+    .panelText{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    form{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
+    input{
+      flex:1 1 240px;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+      font-family: inherit;
+      font-size:13px;
+      font-weight:400;
+    }
+    input:focus{
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+    }
+    input::placeholder{color: rgba(163,173,189,.70)}
+
+    .foot{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      font-size:12px;
+      color: rgba(163,173,189,.85);
+      border-top:1px solid rgba(255,255,255,.06);
+      padding-top:14px;
+    }
+
+    /* small badge */
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+      color: rgba(233,237,244,.78);
+      font-size:12px;
+      font-weight:500;
+    }
+    .status .dot{
+      width:7px; height:7px; border-radius:50%;
+      background: rgba(233,237,244,.28);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.05);
+    }
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .left{padding:8px 0 0}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <span class="badge">GN</span>
+        <span>Grenland Næringsavis</span>
+      </div>
+      <a class="btn primary" href="mailto:grenlandnaeringsavis@gmail.com?subject=Partnersamtale%20-%20GN">Be om partnersamtale</a>
+    </header>
+
+    <main class="hero">
+      <section class="left">
+        <div class="kicker">Kommer snart</div>
+        <h1>Innsikt for beslutningstakere i Grenland.</h1>
+        <p class="lead">
+          GN er en redaktørstyrt innsiktsplattform med fokus på analyse, kontekst og struktur – ikke støy.
+          Vi bygger nå første versjon.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="mailto:grenlandnaeringsavis@gmail.com?subject=Partnersamtale%20-%20GN">Be om partnersamtale</a>
+          <a class="btn" href="#oppdateringer">Få beskjed ved lansering</a>
+          <span class="status"><span class="dot"></span>Bygges nå</span>
+        </div>
+
+        <div class="rule"></div>
+
+        <div class="bullets">
+          <div class="bullet"><i></i><span>Færre, bedre saker innen eiendom, industri og kapital</span></div>
+          <div class="bullet"><i></i><span>Uavhengig – ingen kjøpt omtale</span></div>
+          <div class="bullet"><i></i><span>Begrenset antall strategiske partnere</span></div>
+        </div>
+
+        <div class="contact">
+          Kontakt: <a href="mailto:grenlandnaeringsavis@gmail.com">grenlandnaeringsavis@gmail.com</a>
+        </div>
+      </section>
+
+      <aside class="panel" id="oppdateringer">
+        <div class="panelTitle">Oppdateringer</div>
+        <p class="panelText">Legg igjen e-post, så sier vi ifra når vi åpner. (Ingen spam.)</p>
+
+        <form action="mailto:grenlandnaeringsavis@gmail.com" method="post" enctype="text/plain">
+          <input name="E-post" type="email" placeholder="E-post" required />
+          <button class="btn primary" type="submit">Varsle meg</button>
+        </form>
+
+        <div class="foot">
+          <span>© GN</span>
+          <span><a href="mailto:grenlandnaeringsavis@gmail.com">grenlandnaeringsavis@gmail.com</a></span>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
+
+
+
