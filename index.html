@@ -4,31 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GN – Grenland Næringsavis</title>
-  <meta name="description" content="GN er en innsiktsplattform for beslutningstakere i Grenland. Analyse, kontekst og struktur – ikke støy." />
+  <meta name="description" content="Grenland Næringsavis (GN) – innsikt for beslutningstakere i Grenland." />
+  <meta name="robots" content="index,follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter: sober og premium -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#07090c;
-      --bg2:#0b0e12;
-
-      --panel:rgba(255,255,255,.03);
-      --panel2:rgba(255,255,255,.02);
-      --stroke:rgba(255,255,255,.08);
-      --stroke2:rgba(255,255,255,.06);
-
+      --bg0:#07090c;
+      --bg1:#0a0d12;
+      --bg2:#0c1016;
+      --stroke:rgba(255,255,255,.06);
+      --stroke2:rgba(255,255,255,.045);
+      --panel:rgba(255,255,255,.02);
       --text:#e9edf4;
-      --muted:#a3adbd;
+      --muted:#a7b0c0;
       --muted2:#7f8898;
-
-      --accent:#2b67e8;
-      --accentStroke:rgba(43,103,232,.35);
-
-      --max:1080px;
+      --accent:rgba(43,103,232,.14);
+      --accentStroke:rgba(43,103,232,.26);
+      --max:1040px;
       --radius:14px;
     }
 
@@ -39,34 +35,51 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
       background:
-        radial-gradient(900px 520px at 18% 14%, rgba(255,255,255,.055), transparent 58%),
-        radial-gradient(900px 520px at 80% 20%, rgba(43,103,232,.10), transparent 62%),
-        radial-gradient(700px 420px at 55% 90%, rgba(255,255,255,.035), transparent 65%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(900px 520px at 16% 14%, rgba(255,255,255,.045), transparent 60%),
+        radial-gradient(900px 520px at 78% 18%, rgba(43,103,232,.075), transparent 62%),
+        radial-gradient(700px 420px at 55% 92%, rgba(255,255,255,.03), transparent 66%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:34px 18px 80px}
+    a:hover{text-decoration:underline}
 
-    /* TOP */
-    .top{
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-      padding:8px 0;
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 18px 86px;
     }
-    .brand{display:flex; align-items:center; gap:12px; font-weight:500; letter-spacing:.2px}
-    .badge{
-      width:34px; height:34px; border-radius:10px;
-      display:inline-flex; align-items:center; justify-content:center;
-      border:1px solid var(--stroke2);
-      background: rgba(255,255,255,.02);
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 0 6px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:12px;
+      letter-spacing:.02em;
+    }
+    .logo{
       font-weight:600;
+      letter-spacing:.16em;
       font-size:13px;
+      opacity:.92;
     }
-    .brand span:last-child{opacity:.95; font-size:13px}
+    .logoText{
+      font-size:13px;
+      opacity:.82;
+      font-weight:500;
+    }
 
-    /* BUTTONS – mer “dyrt”, mindre “app” */
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:10px 14px;
       border-radius:12px;
       border:1px solid var(--stroke2);
@@ -76,105 +89,83 @@
       font-weight:500;
       font-size:13px;
       letter-spacing:.01em;
+      text-decoration:none !important;
     }
-    .btn:hover{background: rgba(255,255,255,.035); border-color: rgba(255,255,255,.10)}
+    .btn:hover{background: rgba(255,255,255,.035); border-color: rgba(255,255,255,.085)}
     .btn:active{transform: translateY(1px)}
     .btn.primary{
-      background: rgba(43,103,232,.12);
+      background: var(--accent);
       border-color: var(--accentStroke);
-      box-shadow: 0 22px 70px rgba(0,0,0,.45);
     }
-    .btn.primary:hover{background: rgba(43,103,232,.16)}
 
-    /* HERO AREA */
-    .hero{
-      margin-top:56px;
+    main{
+      margin-top:74px;
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.1fr .9fr;
       gap:18px;
       align-items:start;
     }
 
-    /* Left – mer editorial, mindre “kort” */
-    .left{
-      padding:18px 2px 0;
-    }
+    .left{padding:6px 2px 0}
     .kicker{
       font-size:11px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color: rgba(233,237,244,.62);
-      margin-bottom:16px;
+      color: rgba(233,237,244,.56);
       font-weight:500;
+      margin-bottom:18px;
     }
+
     h1{
       margin:0 0 14px;
-      font-size:44px;
-      line-height:1.05;
-      letter-spacing:-.9px;
+      font-size:46px;
+      line-height:1.03;
+      letter-spacing:-1.1px;
       font-weight:500;
     }
+
     .lead{
       margin:0;
       color:var(--muted);
       font-size:15px;
-      line-height:1.75;
+      line-height:1.78;
       font-weight:400;
-      max-width:56ch;
+      max-width:62ch;
     }
 
-    .ctaRow{
-      margin-top:22px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-    }
-
-    /* Divider – gir “avis” */
     .rule{
-      margin:26px 0 16px;
+      margin:26px 0 14px;
       height:1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent);
     }
 
-    .bullets{
+    .points{
       display:grid;
       gap:10px;
       color:var(--muted2);
       font-size:13px;
       line-height:1.55;
+      max-width:70ch;
     }
-    .bullet{
+    .point{
       display:flex;
       gap:10px;
       align-items:flex-start;
     }
-    .bullet i{
-      width:8px; height:8px; border-radius:50%;
+    .point i{
+      width:8px; height:8px;
+      border-radius:50%;
       margin-top:7px;
-      background: rgba(233,237,244,.30);
-      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+      background: rgba(233,237,244,.22);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.05);
       flex:0 0 auto;
     }
 
-    .contact{
-      margin-top:18px;
-      color: rgba(163,173,189,.92);
-      font-size:13px;
-    }
-    .contact a{color: rgba(233,237,244,.88)}
-    .contact a:hover{text-decoration:underline}
-
-    /* Right panel – eneste “kort” */
     .panel{
       border-radius: var(--radius);
       border:1px solid var(--stroke);
-      background:
-        linear-gradient(180deg, var(--panel), var(--panel2));
-      box-shadow:
-        0 32px 90px rgba(0,0,0,.58),
-        inset 0 1px 0 rgba(255,255,255,.04);
+      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.012));
+      box-shadow: 0 34px 96px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.04);
       backdrop-filter: blur(10px);
       padding:20px;
     }
@@ -182,131 +173,109 @@
       font-size:11px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color: rgba(233,237,244,.62);
-      margin-bottom:10px;
+      color: rgba(233,237,244,.56);
       font-weight:500;
+      margin-bottom:10px;
     }
     .panelText{
       margin:0;
       color:var(--muted);
       font-size:13px;
-      line-height:1.65;
+      line-height:1.7;
     }
 
-    form{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
-    input{
-      flex:1 1 240px;
-      padding:12px 12px;
+    .contactBox{
+      margin-top:14px;
+      padding:14px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
-      color:var(--text);
-      outline:none;
-      font-family: inherit;
-      font-size:13px;
-      font-weight:400;
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.18);
     }
-    input:focus{
-      border-color: rgba(255,255,255,.18);
-      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+    .contactLabel{
+      font-size:12px;
+      color: rgba(233,237,244,.70);
+      margin:0 0 8px;
+      font-weight:500;
     }
-    input::placeholder{color: rgba(163,173,189,.70)}
+    .email{
+      font-size:14px;
+      font-weight:500;
+      letter-spacing:.01em;
+    }
 
     .foot{
-      margin-top:18px;
+      margin-top:16px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       justify-content:space-between;
       font-size:12px;
-      color: rgba(163,173,189,.85);
+      color: rgba(167,176,192,.82);
       border-top:1px solid rgba(255,255,255,.06);
       padding-top:14px;
     }
 
-    /* small badge */
-    .status{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.18);
-      color: rgba(233,237,244,.78);
-      font-size:12px;
-      font-weight:500;
-    }
-    .status .dot{
-      width:7px; height:7px; border-radius:50%;
-      background: rgba(233,237,244,.28);
-      box-shadow: 0 0 0 3px rgba(255,255,255,.05);
-    }
-
-    @media (max-width: 960px){
-      .hero{grid-template-columns:1fr}
+    @media (max-width: 980px){
+      main{grid-template-columns:1fr; margin-top:56px}
       h1{font-size:34px}
-      .left{padding:8px 0 0}
+      .left{padding:0}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header class="top">
+    <header>
       <div class="brand">
-        <span class="badge">GN</span>
-        <span>Grenland Næringsavis</span>
+        <strong class="logo">GN</strong>
+        <span class="logoText">Grenland Næringsavis</span>
       </div>
-      <a class="btn primary" href="mailto:grenlandnaeringsavis@gmail.com?subject=Partnersamtale%20-%20GN">Be om partnersamtale</a>
+      <a class="btn primary" href="mailto:grenlandnaeringsavis@gmail.com?subject=Henvendelse%20-%20GN">Kontakt</a>
     </header>
 
-    <main class="hero">
+    <main>
       <section class="left">
-        <div class="kicker">Kommer snart</div>
-        <h1>Innsikt for beslutningstakere i Grenland.</h1>
-        <p class="lead">
-          GN er en redaktørstyrt innsiktsplattform med fokus på analyse, kontekst og struktur – ikke støy.
-          Vi bygger nå første versjon.
-        </p>
+        <div class="kicker">Midlertidig landingsside</div>
 
-        <div class="ctaRow">
-          <a class="btn primary" href="mailto:grenlandnaeringsavis@gmail.com?subject=Partnersamtale%20-%20GN">Be om partnersamtale</a>
-          <a class="btn" href="#oppdateringer">Få beskjed ved lansering</a>
-          <span class="status"><span class="dot"></span>Bygges nå</span>
-        </div>
+        <h1>Grenland Næringsavis.</h1>
+
+        <p class="lead">
+          GN er en uavhengig, redaktørstyrt innsiktsplattform under utvikling. Denne siden er midlertidig og brukes for kontakt
+          frem til lansering.
+        </p>
 
         <div class="rule"></div>
 
-        <div class="bullets">
-          <div class="bullet"><i></i><span>Færre, bedre saker innen eiendom, industri og kapital</span></div>
-          <div class="bullet"><i></i><span>Uavhengig – ingen kjøpt omtale</span></div>
-          <div class="bullet"><i></i><span>Begrenset antall strategiske partnere</span></div>
-        </div>
-
-        <div class="contact">
-          Kontakt: <a href="mailto:grenlandnaeringsavis@gmail.com">grenlandnaeringsavis@gmail.com</a>
+        <div class="points">
+          <div class="point"><i></i><span>Fokus: næringsliv, industri, eiendom og kapital i Grenland.</span></div>
+          <div class="point"><i></i><span>Færre, mer relevante saker – tydelig kontekst.</span></div>
+          <div class="point"><i></i><span>Henvendelser: dialog og samarbeid vurderes løpende.</span></div>
         </div>
       </section>
 
-      <aside class="panel" id="oppdateringer">
-        <div class="panelTitle">Oppdateringer</div>
-        <p class="panelText">Legg igjen e-post, så sier vi ifra når vi åpner. (Ingen spam.)</p>
+      <aside class="panel">
+        <div class="panelTitle">Kontakt</div>
+        <p class="panelText">
+          For henvendelser eller dialog:
+        </p>
 
-        <form action="mailto:grenlandnaeringsavis@gmail.com" method="post" enctype="text/plain">
-          <input name="E-post" type="email" placeholder="E-post" required />
-          <button class="btn primary" type="submit">Varsle meg</button>
-        </form>
+        <div class="contactBox">
+          <p class="contactLabel">E-post</p>
+          <div class="email">
+            <a href="mailto:grenlandnaeringsavis@gmail.com?subject=Henvendelse%20-%20GN">grenlandnaeringsavis@gmail.com</a>
+          </div>
+        </div>
 
         <div class="foot">
           <span>© GN</span>
-          <span><a href="mailto:grenlandnaeringsavis@gmail.com">grenlandnaeringsavis@gmail.com</a></span>
+          <span>Midlertidig side</span>
         </div>
       </aside>
     </main>
   </div>
 </body>
 </html>
+
 
 
 
